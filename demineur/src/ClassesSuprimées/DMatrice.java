@@ -1,13 +1,13 @@
 package ClassesSuprimées;
 
-import java.lang.*;
+/*import java.lang.*;
 import java.util.Random;
 
-import DCase;
+import DCase;*/
 
 public class DMatrice{
 	
-	private int hauteur, largeur, nbMines; // parametres de la partie
+	/*private int hauteur, largeur, nbMines; // parametres de la partie
 	private DCase[][] matrice; 
 	private int caseNonMineeRestante;
 	private boolean explosion;
@@ -47,26 +47,25 @@ public class DMatrice{
 	}
 	
 	
-	public void devoilerCase(int i,int j){
+	public void devoilerCase(int i,int j){*/
 
 		/* Case d�couverte */
-		try{
+		/*try{
 			   	matrice[i][j].setDecouverte();
 			   	caseNonMineeRestante--;
 		}
-		catch(ArrayIndexOutOfBoundsException e){  }
-		
+		catch(ArrayIndexOutOfBoundsException e){  }*/
 		
 		  /* on regarde si la case est min�e */
-		try{
+		/*try{
 			  if(matrice[i][j].estMine())
 			  	explosion = true;
-			  else{
+			  else{*/
 			  
 		  	
 		 		/* propagation �ventuelle */
 
-				if(matrice[i][j].getMinesAlentour()==0){
+				/*if(matrice[i][j].getMinesAlentour()==0){
 					
 					try{
 						if(!matrice[i-1][j-1].estDecouverte())
@@ -179,12 +178,12 @@ public class DMatrice{
 							if(matrice[i+1][j+1].estMine()) 
 								minesCompteur++;
 						}
-						catch(ArrayIndexOutOfBoundsException e){  }
+						catch(ArrayIndexOutOfBoundsException e){  }*/
 					
 		
 				
 						/* les mines ont �t�s compt�s*/
-						matrice[i][j].setMinesAlentour(minesCompteur);								
+						/*matrice[i][j].setMinesAlentour(minesCompteur);								
 					}
 			
 			}
@@ -250,7 +249,7 @@ public class DMatrice{
 			System.out.println("");
 			
 		}
-	}
+	}*/
 
 
 }
