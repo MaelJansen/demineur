@@ -21,8 +21,7 @@ public class DFenetre extends JFrame {
 	
 	private JLabel minesRestantes;
 	private DChronoLabel temps;
-	private JPanel nord; 
-	private int tailleX, tailleY;
+	private JPanel nord;
 	
 	private JButton go;
 	private DButton[][] boutons;
