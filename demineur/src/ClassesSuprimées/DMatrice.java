@@ -1,6 +1,9 @@
+package ClassesSuprimées;
 
 import java.lang.*;
 import java.util.Random;
+
+import DCase;
 
 public class DMatrice{
 	
