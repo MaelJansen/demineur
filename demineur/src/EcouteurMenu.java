@@ -26,7 +26,6 @@ public class EcouteurMenu implements ActionListener{
 				fenetre.arretChrono();
 				fenetre.initChrono();
 				partie.nouvellePartie(9,9,10);
-				fenetre.type = fenetre.DEBUTANT;
 				fenetre.connecterPartie(partie);
 				}
 	    
@@ -34,20 +33,17 @@ public class EcouteurMenu implements ActionListener{
 				fenetre.arretChrono();
 				fenetre.initChrono();
 				partie.nouvellePartie(16,16,40);
-				fenetre.type = fenetre.INTER;
 				fenetre.connecterPartie(partie);
 		}	
 		if(ae.getSource() == fenetre.getExpert()){
 				fenetre.arretChrono();
 				fenetre.initChrono();
 				partie.nouvellePartie(16,30,99);
-				fenetre.type = fenetre.EXPERT;
 				fenetre.connecterPartie(partie);
 		}
 		
 		if(ae.getSource() == fenetre.getPerso()){
 			Pref pref = new Pref(fenetre, partie);
-			fenetre.type = fenetre.PERSO;
 
 		}
 		

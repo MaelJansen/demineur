@@ -29,12 +29,9 @@ public class DFenetre extends JFrame {
 	private DImageur imageur;
 	private DPanneau centre;
 
-	int type;
-
 	public DFenetre(DPartie p) {
 		super("Demineur");
 		menu();
-		type = DEBUTANT;
 		imageur = new DImageur(p);
 		miseEnPage();
 
