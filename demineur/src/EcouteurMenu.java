@@ -17,7 +17,7 @@ public class EcouteurMenu implements ActionListener{
 	    	if(ae.getSource() == fenetre.getNouvelle()){
 			fenetre.arretChrono();
 			fenetre.initChrono();
-			partie = new DPartie(partie.getHauteur(),
+			partie.nouvellePartie(partie.getHauteur(),
 		                      partie.getLargeur(),
 		                      partie.getMines());
 			fenetre.connecterPartie(partie);
@@ -25,7 +25,7 @@ public class EcouteurMenu implements ActionListener{
 	       	if(ae.getSource() == fenetre.getDebutant()){
 				fenetre.arretChrono();
 				fenetre.initChrono();
-				partie = new DPartie(9,9,10);
+				partie.nouvellePartie(9,9,10);
 				fenetre.type = fenetre.DEBUTANT;
 				fenetre.connecterPartie(partie);
 				}
@@ -33,14 +33,14 @@ public class EcouteurMenu implements ActionListener{
 		if(ae.getSource() == fenetre.getIntermediaire()){
 				fenetre.arretChrono();
 				fenetre.initChrono();
-				partie = new DPartie(16,16,40);
+				partie.nouvellePartie(16,16,40);
 				fenetre.type = fenetre.INTER;
 				fenetre.connecterPartie(partie);
 		}	
 		if(ae.getSource() == fenetre.getExpert()){
 				fenetre.arretChrono();
 				fenetre.initChrono();
-				partie = new DPartie(16,30,99);
+				partie.nouvellePartie(16,30,99);
 				fenetre.type = fenetre.EXPERT;
 				fenetre.connecterPartie(partie);
 		}

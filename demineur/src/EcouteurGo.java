@@ -15,7 +15,7 @@ public class EcouteurGo implements ActionListener{
 		fenetre.arretChrono();
 		fenetre.initChrono();
 		
-		partie = new DPartie(partie.getHauteur(),
+		partie.nouvellePartie(partie.getHauteur(),
 		                      partie.getLargeur(),
 		                      partie.getMines());
 		fenetre.connecterPartie(partie);

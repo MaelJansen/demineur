@@ -7,6 +7,10 @@ public class DPartie {
 	private boolean explosion;
 	
 	public DPartie(int h, int l, int nb){
+		nouvellePartie(h, l, nb);
+	}
+	
+	public void nouvellePartie(int h, int l, int nb) {
 		hauteur = h;
 		largeur = l;
 		nbMines = nb;
