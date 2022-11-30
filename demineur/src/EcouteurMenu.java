@@ -17,15 +17,15 @@ public class EcouteurMenu implements ActionListener{
 	    	if(ae.getSource() == fenetre.getNouvelle()){
 			fenetre.arretChrono();
 			fenetre.initChrono();
-			partie.nouvellePartie(partie.getMatrice().getHauteur(),
-		                      partie.getMatrice().getLargeur(),
-		                      partie.getMatrice().getMines());
+			partie = new DPartie(partie.getHauteur(),
+		                      partie.getLargeur(),
+		                      partie.getMines());
 			fenetre.connecterPartie(partie);
 		}
 	       	if(ae.getSource() == fenetre.getDebutant()){
 				fenetre.arretChrono();
 				fenetre.initChrono();
-				partie.nouvellePartie(9,9,10);
+				partie = new DPartie(9,9,10);
 				fenetre.type = fenetre.DEBUTANT;
 				fenetre.connecterPartie(partie);
 				}
@@ -33,14 +33,14 @@ public class EcouteurMenu implements ActionListener{
 		if(ae.getSource() == fenetre.getIntermediaire()){
 				fenetre.arretChrono();
 				fenetre.initChrono();
-				partie.nouvellePartie(16,16,40);
+				partie = new DPartie(16,16,40);
 				fenetre.type = fenetre.INTER;
 				fenetre.connecterPartie(partie);
 		}	
 		if(ae.getSource() == fenetre.getExpert()){
 				fenetre.arretChrono();
 				fenetre.initChrono();
-				partie.nouvellePartie(16,30,99);
+				partie = new DPartie(16,30,99);
 				fenetre.type = fenetre.EXPERT;
 				fenetre.connecterPartie(partie);
 		}
@@ -66,11 +66,8 @@ public class EcouteurMenu implements ActionListener{
 		}
 		if(ae.getSource()==fenetre.getCreateur()) 
 				JOptionPane.showMessageDialog(fenetre,
-				     " Réalisé par Igor DAURIAC et Nicolas FRANCOIS, Projet IHM"
-				      ,"Créateurs...",JOptionPane.INFORMATION_MESSAGE);
-			
-			
-		
+				     " Rï¿½alisï¿½ par Igor DAURIAC et Nicolas FRANCOIS, Projet IHM"
+				      ,"Crï¿½ateurs...",JOptionPane.INFORMATION_MESSAGE);
 						
 	}
 	

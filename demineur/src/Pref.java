@@ -147,7 +147,7 @@ public class Pref implements ActionListener, FocusListener{
 			fenetre.arretChrono();
 			fenetre.initChrono();
 		
-			partie.nouvellePartie(hauteur,largeur,mines);
+			partie = new DPartie(hauteur,largeur,mines);
 			fenetre.connecterPartie(partie);	
 				
 		}
