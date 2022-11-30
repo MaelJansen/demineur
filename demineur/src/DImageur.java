@@ -19,7 +19,7 @@ public class DImageur{
 	}
 	
 	
-	ImageIcon getImage(int i, int j){
+	public ImageIcon getImage(int i, int j){
 		
 		if(!partie.perdu() && !partie.gagne()){
 			if(partie.getMatrice().getCase(i,j).yaDrapreau())
