@@ -22,15 +22,15 @@ public class DImageur{
 	ImageIcon getImage(int i, int j){
 		
 		if(!partie.perdu() && !partie.gagne()){
-			if(partie.getMatrice().getCase(i,j).yaDrapreau())
+			if(partie.getCase(i,j).yaDrapreau())
 				return new ImageIcon(repertoire+"/Drapeau.GIF");
-			if(!partie.getMatrice().getCase(i,j).estDecouverte()){
-				if(partie.getMatrice().getCase(i,j).select())
+			if(!partie.getCase(i,j).estDecouverte()){
+				if(partie.getCase(i,j).select())
 					return new ImageIcon(repertoire+"/Select.GIF");
 				else
 					return new ImageIcon(repertoire+"/Inconnue.GIF");
 			}
-			switch(partie.getMatrice().getCase(i,j).getMinesAlentour()){
+			switch(partie.getCase(i,j).getMinesAlentour()){
 					case 0: return new ImageIcon(repertoire+"/Vide.GIF");
 					case 1: return new ImageIcon(repertoire+"/1.GIF");
 					case 2: return new ImageIcon(repertoire+"/2.GIF");
@@ -45,14 +45,14 @@ public class DImageur{
 		}
 		else{
 			if(partie.perdu()){
-				if((partie.getMatrice().getCase(i,j).yaDrapreau())
-			   		&& !(partie.getMatrice().getCase(i,j).estMine() ))
+				if((partie.getCase(i,j).yaDrapreau())
+			   		&& !(partie.getCase(i,j).estMine() ))
 			   			return new ImageIcon(repertoire+"/Croix.GIF");
-			   	if(partie.getMatrice().getCase(i,j).estMine())
+			   	if(partie.getCase(i,j).estMine())
 			   		return new ImageIcon(repertoire+"/Mine.GIF");
-			   	if(!partie.getMatrice().getCase(i,j).estDecouverte())
+			   	if(!partie.getCase(i,j).estDecouverte())
 					return new ImageIcon(repertoire+"/Inconnue.GIF");	
-			 		switch(partie.getMatrice().getCase(i,j).getMinesAlentour()){
+			 		switch(partie.getCase(i,j).getMinesAlentour()){
 						case 0: return new ImageIcon(repertoire+"/Vide.GIF");
 						case 1: return new ImageIcon(repertoire+"/1.GIF");
 						case 2: return new ImageIcon(repertoire+"/2.GIF");
@@ -66,7 +66,7 @@ public class DImageur{
 					}
 			}
 			else {
-				switch(partie.getMatrice().getCase(i,j).getMinesAlentour()){
+				switch(partie.getCase(i,j).getMinesAlentour()){
 						case 0: return new ImageIcon(repertoire+"/Vide.GIF");
 						case 1: return new ImageIcon(repertoire+"/1.GIF");
 						case 2: return new ImageIcon(repertoire+"/2.GIF");
