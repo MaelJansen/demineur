@@ -1,6 +1,7 @@
 package metier;
 import javax.swing.*;
 
+import controllers.EcouteurSouris;
 import ihm.DFenetre;
 
 import java.awt.*;

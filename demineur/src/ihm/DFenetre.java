@@ -44,6 +44,7 @@ public class DFenetre extends JFrame {
 	}
 	
 	public void connecterPartie(DPartie p){
+		System.out.println("DFenetre - connecterPartie");
 		partie = p;
 		
 
@@ -74,6 +75,7 @@ public class DFenetre extends JFrame {
 	}
 
 	private void menu() {
+		System.out.println("DFenetre - menu");
 		/* creation du menu de jeu */
 		jeu = new JMenu("Jeu");
 		nouvelle = new JMenuItem("Nouvelle partie");
@@ -156,6 +158,7 @@ public class DFenetre extends JFrame {
 	}
 
 	public void ecouterMenu(ActionListener al) {
+		System.out.println("DFenetre - ecouterMenu");
 		debutant.addActionListener(al);
 		intermediaire.addActionListener(al);
 		expert.addActionListener(al);
@@ -170,42 +173,52 @@ public class DFenetre extends JFrame {
 	}
 
 	public JMenuItem getNouvelle() {
+		System.out.println("DFenetre - getNouvelle");
 		return nouvelle;
 	}
 
 	public JMenuItem getDebutant() {
+		System.out.println("DFenetre - getDebutant");
 		return debutant;
 	}
 
 	public JMenuItem getIntermediaire() {
+		System.out.println("DFenetre - getIntermediaire");
 		return intermediaire;
 	}
 
 	public JMenuItem getExpert() {
+		System.out.println("DFenetre - getExpert");
 		return expert;
 	}
 
 	public JMenuItem getPerso() {
+		System.out.println("DFenetre - getPerso");
 		return perso;
 	}
 
 	public JMenuItem getDesign() {
+		System.out.println("DFenetre - getDesign");
 		return design;
 	}
 
 	public JMenuItem getQuitter() {
+		System.out.println("DFenetre - getQuitter");
 		return quitter;
 	}
 
 	public JMenuItem getAide() {
+		System.out.println("DFenetre - getAide");
 		return aide;
 	}
 
 	public JMenuItem getCreateur() {
+		System.out.println("DFenetre - getCreateur");
 		return createur;
 	}
 
 	private void miseEnPage() {
+		System.out.println("DFenetre - miseEnPage");
 		Container c = this.getContentPane();
 		c.setLayout(new BorderLayout(5, 5));
 
@@ -236,34 +249,42 @@ public class DFenetre extends JFrame {
 	}
 
 	public JButton getGo() {
+		System.out.println("DFenetre - getGo");
 		return go;
 	}
 
 	public DPanneau getPanneauCentral() {
+		System.out.println("DFenetre - getPanneauCentral");
 		return centre;
 	}
 
 	public DImageur getImageur() {
+		System.out.println("DFenetre - getImageur");
 		return imageur;
 	}
 
 	public void goPerdu() {
+		System.out.println("DFenetre - goPerdu");
 		go.setIcon(new ImageIcon(imageur.getRepertoire() + "/Perdu.GIF"));
 	}
 
 	public void goGagne() {
+		System.out.println("DFenetre - goGagne");
 		go.setIcon(new ImageIcon(imageur.getRepertoire() + "/Gagne.GIF"));
 	}
 
 	public void goOups() {
+		System.out.println("DFenetre - goOups");
 		go.setIcon(new ImageIcon(imageur.getRepertoire() + "/Oups.GIF"));
 	}
 
 	public void goCool() {
+		System.out.println("DFenetre - goCool");
 		go.setIcon(new ImageIcon(imageur.getRepertoire() + "/Cool.GIF"));
 	}
 	
 	public void miseAJourCompteur(){
+		System.out.println("DFenetre - miseAjourCompteur");
 			int nb = partie.getMines()
 			          -partie.nbrDrapeau();
 			Integer integer = new Integer(nb);
@@ -276,37 +297,45 @@ public class DFenetre extends JFrame {
 	}
 
 	public void lancerChrono() {
+		System.out.println("DFenetre - lancerChrono");
 		if (!temps.estActif())
 			temps.getThread().start();
 	}
 
 	public void arretChrono() {
+		System.out.println("DFenetre - arretChrono");
 		temps.stop();
 	}
 
 	public void initChrono() {
+		System.out.println("DFenetre - initChrono");
 		temps.initChrono();
 	}
 
 	public void pauseChrono() {
+		System.out.println("DFenetre - pauseChrono");
 		temps.mettreEnPause();
 	}
 
 	public void repriseChrono() {
+		System.out.println("DFenetre - repriseChrono");
 		temps.enleverPause();
 	}
 
 	public int getChrono() {
+		System.out.println("DFenetre - getChrono");
 		return temps.getTime();
 	}
 	
 	public ImageIcon getIcon(int i, int j) {
+		System.out.println("DFenetre - getIcon");
 		return imageur.getIcon(partie.getEtatCase(i, j));
 	}
 	
 
 	
 	public DCase getCase(int i, int j)  {
+		System.out.println("DFenetre - getCase");
 		try{
 			return partie.getMatrice()[i][j];
 		}
