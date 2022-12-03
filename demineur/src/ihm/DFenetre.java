@@ -2,6 +2,7 @@ package ihm;
 import javax.swing.*;
 
 import controllers.EcouteurSouris;
+import metier.DCase;
 import metier.DChronoLabel;
 import metier.DImageur;
 import metier.DPanneau;
@@ -16,11 +17,7 @@ public class DFenetre extends JFrame {
 	final static int INTER = 2;
 	final static int EXPERT = 3;
 	final static int PERSO = 4;
-
-	int nb_col;
-	int nb_lgn;
-	int nb_mines;
-
+	
 	JMenuBar barreMenus;
 	JMenu jeu, options, aPropos;
 
@@ -47,10 +44,7 @@ public class DFenetre extends JFrame {
 	}
 	
 	public void connecterPartie(DPartie p){
-		partie = p; 
-		nb_lgn = p.getHauteur();
-		nb_col = p.getLargeur();
-		nb_mines = p.getMines();
+		partie = p;
 		
 
 		miseAJourCompteur();
@@ -59,7 +53,7 @@ public class DFenetre extends JFrame {
 		/* partie centrale : damier */
 		if (centre != null)
 			getContentPane().remove(centre);
-		centre = new DPanneau(this, nb_lgn, nb_col);
+		centre = new DPanneau(this, partie.getHauteur(), partie.getLargeur());
 
 		EcouteurSouris ecouteurSouris = new EcouteurSouris(this, partie);
 		centre.addMouseListener(ecouteurSouris);
@@ -69,7 +63,7 @@ public class DFenetre extends JFrame {
 
 		/* Affichage */
 
-		this.setSize(20 * nb_col + 15, 20 * nb_lgn + 105);
+		this.setSize(20 * partie.getLargeur() + 15, 20 * p.getHauteur() + 105);
 
 		this.setResizable(false);
 
@@ -211,18 +205,6 @@ public class DFenetre extends JFrame {
 		return createur;
 	}
 
-	public int getHauteur() {
-		return nb_lgn;
-	}
-
-	public int getLargeur() {
-		return nb_col;
-	}
-
-	public int getMines() {
-		return nb_mines;
-	}
-
 	private void miseEnPage() {
 		Container c = this.getContentPane();
 		c.setLayout(new BorderLayout(5, 5));
@@ -320,5 +302,14 @@ public class DFenetre extends JFrame {
 	
 	public ImageIcon getIcon(int i, int j) {
 		return imageur.getIcon(partie.getEtatCase(i, j));
+	}
+	
+
+	
+	public DCase getCase(int i, int j)  {
+		try{
+			return partie.getMatrice()[i][j];
+		}
+		catch(ArrayIndexOutOfBoundsException e){ return null; }
 	}
 }
