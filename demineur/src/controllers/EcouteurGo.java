@@ -7,11 +7,9 @@ import metier.DPartie;
 public class EcouteurGo implements ActionListener{
 	
 	DFenetre fenetre;
-	DPartie partie;
 	
 	public EcouteurGo(DFenetre f, DPartie p){
 		fenetre = f;
-		partie = p;
 	}
 	
 	
@@ -19,11 +17,9 @@ public class EcouteurGo implements ActionListener{
 		fenetre.arretChrono();
 		fenetre.initChrono();
 		
-		partie.nouvellePartie(partie.getHauteur(),
-		                      partie.getLargeur(),
-		                      partie.getMines());
-		fenetre.connecterPartie(partie);
-		
+		fenetre.nouvellePartie(fenetre.getHauteur(),
+		                      fenetre.getLargeur(),
+		                      fenetre.getMines());
 	}
 	
 }

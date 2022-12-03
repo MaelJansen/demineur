@@ -78,6 +78,11 @@ public class DFenetre extends JFrame {
 		this.repaint();
 
 	}
+	
+	public void nouvellePartie(int h, int l, int nbMines) {
+		partie.nouvellePartie(h, l, nbMines);
+		connecterPartie(partie);
+	}
 
 	private void menu() {
 		/* creation du menu de jeu */
@@ -320,5 +325,33 @@ public class DFenetre extends JFrame {
 	
 	public ImageIcon getIcon(int i, int j) {
 		return imageur.getIcon(partie.getEtatCase(i, j));
+	}
+	
+	public boolean gagne() {
+		return partie.gagne();
+	}
+	
+	public boolean perdu() {
+		return partie.perdu();
+	}
+	
+	public boolean yaDrapeau(int i, int j) {
+		return partie.getCase(i, j).yaDrapeau();
+	}
+	
+	public void devoilerCase(int i, int j) {
+		partie.devoilerCase(i, j);
+	}
+	
+	public void selectionner(int i, int j) {
+		partie.getCase(i, j).selectionner();
+	}
+	
+	public void deselectionner(int i, int j) {
+		partie.getCase(i, j).deselectionner();
+	}
+	
+	public void drapeauAction(int i, int j) {
+		partie.drapeauAction(i, j);
 	}
 }
