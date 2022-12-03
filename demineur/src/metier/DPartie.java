@@ -269,8 +269,8 @@ public class DPartie {
 			System.out.println("Erreur");
 			
 		}
-		if (caseNonMineeRestante != 0 && ! explosion) {
-			return dcase.getEtatCase(EtatPartie.PERDU);
+		if (caseNonMineeRestante != 0 && explosion) {
+			return dcase.getEtatCase(EtatPartie.PERDUE);
 		}
 		if (caseNonMineeRestante == 0 && !explosion) {
 			return dcase.getEtatCase(EtatPartie.GAGNEE);

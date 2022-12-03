@@ -69,78 +69,39 @@ public class DCase {
 				return EtatCase.INCONNUE;
 			if (!decouverte && selection)
 				return EtatCase.SELECT;
-			if (mine)
-				return EtatCase.MINE;
-			switch (minesAlentour) {
-			case 0:
-				return EtatCase.VIDE;
-			case 1:
-				return EtatCase.UN;
-			case 2:
-				return EtatCase.DEUX;
-			case 3:
-				return EtatCase.TROIS;
-			case 4:
-				return EtatCase.QUATRE;
-			case 5:
-				return EtatCase.CINQ;
-			case 6:
-				return EtatCase.SIX;
-			case 7:
-				return EtatCase.SEPT;
-			default:
-				return EtatCase.HUIT;
-			}
 		}
-		if (ep.equals(EtatPartie.PERDU)) {
-			if (mine)
-				return EtatCase.MINE;
+		if (ep.equals(EtatPartie.PERDUE)) {
 			if (yaDrapeau() && !estMine())
 				return EtatCase.CROIX;
-			if (decouverte)
+			if (mine) {
+				return EtatCase.MINE;
+			}
+			if (!decouverte && !selection)
 				return EtatCase.INCONNUE;
-			switch (minesAlentour) {
-			case 0:
-				return EtatCase.VIDE;
-			case 1:
-				return EtatCase.UN;
-			case 2:
-				return EtatCase.DEUX;
-			case 3:
-				return EtatCase.TROIS;
-			case 4:
-				return EtatCase.QUATRE;
-			case 5:
-				return EtatCase.CINQ;
-			case 6:
-				return EtatCase.SIX;
-			case 7:
-				return EtatCase.SEPT;
-			default:
-				return EtatCase.HUIT;
-			}
-		} else {
-			switch (minesAlentour) {
-			case 0:
-				return EtatCase.VIDE;
-			case 1:
-				return EtatCase.UN;
-			case 2:
-				return EtatCase.DEUX;
-			case 3:
-				return EtatCase.TROIS;
-			case 4:
-				return EtatCase.QUATRE;
-			case 5:
-				return EtatCase.CINQ;
-			case 6:
-				return EtatCase.SIX;
-			case 7:
-				return EtatCase.SEPT;
-			default:
-				return EtatCase.HUIT;
-			}
 		}
-
+		if (ep.equals(EtatPartie.GAGNEE)) {
+			if (yaDrapeau() || mine)
+				return EtatCase.DRAPEAU;
+		}
+		switch (minesAlentour) {
+		case 0:
+			return EtatCase.VIDE;
+		case 1:
+			return EtatCase.UN;
+		case 2:
+			return EtatCase.DEUX;
+		case 3:
+			return EtatCase.TROIS;
+		case 4:
+			return EtatCase.QUATRE;
+		case 5:
+			return EtatCase.CINQ;
+		case 6:
+			return EtatCase.SIX;
+		case 7:
+			return EtatCase.SEPT;
+		default:
+			return EtatCase.HUIT;
+		}
 	}
 }
