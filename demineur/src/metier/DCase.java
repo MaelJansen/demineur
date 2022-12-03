@@ -17,51 +17,65 @@ public class DCase {
 	}
 
 	public boolean estMine() {
+		System.out.println("Dcase - estMine");
 		return mine;
 	}
 
 	public int getMinesAlentour() {
+		System.out.println("Dcase - getMinesAlentour");
 		return minesAlentour;
 	}
 
 	public boolean yaDrapeau() {
+		System.out.println("Dcase - yaDrapeau");
 		return drapeau;
 	}
 
 	public boolean estDecouverte() {
+		System.out.println("Dcase - estDecouverte");
 		return decouverte;
 	}
 
 	public void setDecouverte() {
+		System.out.println("Dcase - setDecouverte");
 		decouverte = true;
 	}
 
 	public void selectionner() {
+		System.out.println("Dcase - selectionner");
 		selection = true;
 	}
 
 	public void deselectionner() {
+		System.out.println("Dcase - deselectionner");
 		selection = false;
 	}
 
 	public boolean select() {
+		System.out.println("Dcase - select");
 		return selection;
 	}
 
 	public void drapeauAction() {
-		if (!decouverte)
+		System.out.println("Dcase - drapeauAction");
+		if (!decouverte) {
 			drapeau = (!drapeau);
+		}
+			
 	}
 
 	public void poserBombe() {
+		System.out.println("Dcase - poserBombe");
 		mine = true;
 	}
 
 	public void setMinesAlentour(int nb) {
+		System.out.println("Dcase - setMinesAlentour");
 		minesAlentour = nb;
 	}
 
 	public EtatCase getEtatCase(EtatPartie ep) {
+		System.out.println("Dcase - getEtatCase");
 		if (ep.equals(EtatPartie.ENCOURS)) {
 			if (yaDrapeau())
 				return EtatCase.DRAPEAU;

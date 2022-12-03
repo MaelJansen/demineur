@@ -60,6 +60,9 @@ public class EcouteurSouris  implements MouseListener, MouseMotionListener{
 	}
 	
 	public void mousePressed(MouseEvent me){
+		System.out.println("  /////////// ");
+		System.out.println("ECOUTEURSOURIS - MOUSEPRESSED ");
+		System.out.println(" /////////// ");
 		sourisX = me.getX()/20;
 		sourisY = me.getY()/20;
 		if(!fenetre.perdu() && !fenetre.gagne()){
