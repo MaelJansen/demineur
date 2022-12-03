@@ -10,13 +10,11 @@ import metier.IDPartie;
 
 public class EcouteurSouris  implements MouseListener, MouseMotionListener{
 
-	private DPartie partie;
 	private DFenetre fenetre;
 	private int sourisX, sourisY;
 	private boolean gauchePresse;
 	
 	public EcouteurSouris(DFenetre f, DPartie p){
-		partie = p;
 		fenetre = f;
 		gauchePresse = false;
 	}
@@ -25,8 +23,8 @@ public class EcouteurSouris  implements MouseListener, MouseMotionListener{
 		sourisX = me.getX()/20;
 		sourisY = me.getY()/20;
 		try{
-		  if(!partie.perdu() && !partie.gagne() 
-		       && !(fenetre.getCase(sourisY,sourisX).yaDrapeau())){
+		  if(!fenetre.perdu() && !fenetre.gagne() 
+				  && !(fenetre.getCase(sourisY,sourisX).yaDrapeau())){
 			
 			if(me.getButton()==me.BUTTON1){
 				gauchePresse = false;
@@ -35,16 +33,16 @@ public class EcouteurSouris  implements MouseListener, MouseMotionListener{
 				}
 				catch(NullPointerException npe){  }
 				try{
-					partie.devoilerCase(sourisY,sourisX);
+					fenetre.devoilerCase(sourisY,sourisX);
 				}
 				catch(NullPointerException npe){  }
 				fenetre.lancerChrono();
-				if(partie.gagne()){
+				if(fenetre.gagne()){
 					fenetre.goGagne();
 					fenetre.arretChrono();
 				}					
 				else
-					if(partie.perdu()){
+					if(fenetre.perdu()){
 						fenetre.goPerdu();
 						fenetre.arretChrono();
 					}
@@ -64,7 +62,7 @@ public class EcouteurSouris  implements MouseListener, MouseMotionListener{
 	public void mousePressed(MouseEvent me){
 		sourisX = me.getX()/20;
 		sourisY = me.getY()/20;
-		if(!partie.perdu() && !partie.gagne()){
+		if(!fenetre.perdu() && !fenetre.gagne()){
 			
 			
 			
@@ -74,7 +72,7 @@ public class EcouteurSouris  implements MouseListener, MouseMotionListener{
 				fenetre.goOups();
 			}	
 			if(me.getButton()==me.BUTTON3){
-				partie.drapeauAction(sourisY,sourisX);					
+				fenetre.getCase(sourisY,sourisX).drapeauAction();;					
 				fenetre.miseAJourCompteur();
 				
 			}

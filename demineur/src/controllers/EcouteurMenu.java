@@ -13,11 +13,9 @@ import java.io.*;
 
 public class EcouteurMenu implements ActionListener{
 	
-	private DPartie partie;
 	private DFenetre fenetre;
 	
-	public EcouteurMenu(DFenetre f, DPartie p){
-		partie = p;
+	public EcouteurMenu(DFenetre f){
 		fenetre = f;
 	}
 	
@@ -26,33 +24,29 @@ public class EcouteurMenu implements ActionListener{
 	    	if(ae.getSource() == fenetre.getNouvelle()){
 			fenetre.arretChrono();
 			fenetre.initChrono();
-			partie.nouvellePartie(partie.getHauteur(),
-		                      partie.getLargeur(),
-		                      partie.getMines());
-			fenetre.connecterPartie(partie);
+			fenetre.nouvellePartie(fenetre.getHauteur(),
+		                      fenetre.getLargeur(),
+		                      fenetre.getMines());
 		}
 	       	if(ae.getSource() == fenetre.getDebutant()){
 				fenetre.arretChrono();
 				fenetre.initChrono();
-				partie.nouvellePartie(9,9,10);
-				fenetre.connecterPartie(partie);
+				fenetre.nouvellePartie(9,9,10);
 				}
 	    
 		if(ae.getSource() == fenetre.getIntermediaire()){
 				fenetre.arretChrono();
 				fenetre.initChrono();
-				partie.nouvellePartie(16,16,40);
-				fenetre.connecterPartie(partie);
+				fenetre.nouvellePartie(16,16,40);
 		}	
 		if(ae.getSource() == fenetre.getExpert()){
 				fenetre.arretChrono();
 				fenetre.initChrono();
-				partie.nouvellePartie(16,30,99);
-				fenetre.connecterPartie(partie);
+				fenetre.nouvellePartie(16,30,99);
 		}
 		
 		if(ae.getSource() == fenetre.getPerso()){
-			Pref pref = new Pref(fenetre, partie);
+			Pref pref = new Pref(fenetre);
 
 		}
 		

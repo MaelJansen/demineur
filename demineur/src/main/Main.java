@@ -19,7 +19,7 @@ public class Main{
 			EcouteurFenetre ecouteurFenetre = new EcouteurFenetre(fenetre);
 			fenetre.addWindowListener(ecouteurFenetre);
 		
-			EcouteurMenu ecouteurMenu = new EcouteurMenu(fenetre,partie);
+			EcouteurMenu ecouteurMenu = new EcouteurMenu(fenetre);
 			fenetre.ecouterMenu(ecouteurMenu);
 	}	
 }
