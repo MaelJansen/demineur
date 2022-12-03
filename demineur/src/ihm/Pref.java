@@ -1,10 +1,8 @@
 package ihm;
 import javax.swing.*;
-
-import metier.DPartie;
-
 import java.awt.*;
 import java.awt.event.*;
+import other.DFenetre;
 
 public class Pref implements ActionListener, FocusListener{
 	JFrame maFen;

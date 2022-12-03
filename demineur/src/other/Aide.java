@@ -1,5 +1,4 @@
-package main;
-import java.lang.Object;
+package other;
 import java.io.*;
 import javax.xml.parsers.*;
 import org.xml.sax.*;

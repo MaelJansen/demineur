@@ -1,8 +1,8 @@
-package metier;
-import java.awt.*;
+package other;
 import javax.swing.*;
 
 public class DChronoLabel extends JLabel implements Runnable {
+	private static final long serialVersionUID = 1L;
 	private Thread t;
 	private boolean enMarche, pause;
 	private int temps;
@@ -30,7 +30,7 @@ public class DChronoLabel extends JLabel implements Runnable {
 			while (pause) {
 			}
 			try {
-				t.sleep(1000);
+				Thread.sleep(1000);
 			} catch (InterruptedException ie) {
 			}
 		}
@@ -50,7 +50,7 @@ public class DChronoLabel extends JLabel implements Runnable {
 	}
 
 	String convertirTemps() {
-		Integer i = new Integer(temps);
+		Integer i = temps;
 		if (temps < 10)
 			return ("00" + i.toString());
 		else if (temps < 100)

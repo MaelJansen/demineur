@@ -1,13 +1,12 @@
-package metier;
+package ihm;
 import javax.swing.*;
 
-import controllers.EcouteurSouris;
-import ihm.DFenetre;
+import other.DFenetre;
 
 import java.awt.*;
 
 public class DPanneau extends JPanel{
-	
+	private static final long serialVersionUID = 1L;
 	private DFenetre fenetre;
 	private int hauteur, largeur;
 	

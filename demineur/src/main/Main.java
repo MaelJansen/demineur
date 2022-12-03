@@ -1,11 +1,5 @@
 package main;
-import java.io.*;
-import java.util.*;
-
-import classesSuprimées.EcouteurFenetre;
-import classesSuprimées.EcouteurGo;
-import classesSuprimées.EcouteurMenu;
-import ihm.DFenetre;
+import other.DFenetre;
 import metier.DPartie;
 
 public class Main{
@@ -17,4 +11,3 @@ public class Main{
 			fenetre.ecouterMenu();
 	}
 }
-
