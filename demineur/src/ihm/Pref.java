@@ -1,10 +1,8 @@
 package ihm;
 import javax.swing.*;
-
-import metier.DPartie;
-
 import java.awt.*;
 import java.awt.event.*;
+import other.DFenetre;
 
 public class Pref implements ActionListener, FocusListener{
 	JFrame maFen;
@@ -47,9 +45,9 @@ public class Pref implements ActionListener, FocusListener{
 		fenetre = fen;
 		System.out.println("Choix");
 		
-		hauteur = partie.getHauteur();
-		largeur = partie.getLargeur();
-		mines = partie.getMines();
+		hauteur = fenetre.getHauteur();
+		largeur = fenetre.getLargeur();
+		mines = fenetre.getMines();
 		
 		miseEnPage();
 		ajoutEcouteurs();

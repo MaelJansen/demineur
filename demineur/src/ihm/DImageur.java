@@ -1,8 +1,7 @@
-package metier;
+package ihm;
+import metier.EtatCase;
 
 import javax.swing.*;
-
-import java.awt.*;
 
 public class DImageur {
 

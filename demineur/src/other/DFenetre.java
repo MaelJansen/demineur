@@ -1,23 +1,25 @@
-package ihm;
+package other;
+import ihm.DImageur;
+import ihm.DPanneau;
+
 import javax.swing.*;
 
 import controllers.EcouteurSouris;
 import metier.DCase;
-import metier.DChronoLabel;
-import metier.DImageur;
-import metier.DPanneau;
+import ihm.DImageChooser;
 import metier.DPartie;
-
+import ihm.Pref;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 
-public class DFenetre extends JFrame {
-
+public class DFenetre extends JFrame implements WindowListener {
+	private static final long serialVersionUID = 1L;
 	final static int DEBUTANT = 1;
 	final static int INTER = 2;
 	final static int EXPERT = 3;
 	final static int PERSO = 4;
-	
+
 	JMenuBar barreMenus;
 	JMenu jeu, options, aPropos;
 
@@ -45,8 +47,8 @@ public class DFenetre extends JFrame {
 	
 	public void connecterPartie(DPartie p){
 		System.out.println("DFenetre - connecterPartie");
+
 		partie = p;
-		
 
 		miseAJourCompteur();
 		goCool();
@@ -73,7 +75,7 @@ public class DFenetre extends JFrame {
 		this.repaint();
 
 	}
-	
+
 	public void nouvellePartie(int h, int l, int nbMines) {
 		partie.nouvellePartie(h, l, nbMines);
 		connecterPartie(partie);
@@ -84,29 +86,29 @@ public class DFenetre extends JFrame {
 		/* creation du menu de jeu */
 		jeu = new JMenu("Jeu");
 		nouvelle = new JMenuItem("Nouvelle partie");
-		nouvelle.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,InputEvent.CTRL_MASK));
+		nouvelle.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_DOWN_MASK));
 		nouvelle.setToolTipText("Partie avec les m�mes param�tres");
 		jeu.add(nouvelle);
 		jeu.addSeparator();
-		
-		ButtonGroup groupRadio=new ButtonGroup();
-		
+
+		ButtonGroup groupRadio = new ButtonGroup();
+
 		debutant = new JRadioButtonMenuItem("D�butant");
-		debutant.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D,InputEvent.CTRL_MASK));
+		debutant.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D, InputEvent.CTRL_DOWN_MASK));
 		debutant.setToolTipText("81 cases 10 mines");
-		
+
 		intermediaire = new JRadioButtonMenuItem("Interm�diaire");
-		intermediaire.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I,InputEvent.CTRL_MASK));
+		intermediaire.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.CTRL_DOWN_MASK));
 		intermediaire.setToolTipText("256 cases 40 mines");
 
 		expert = new JRadioButtonMenuItem("Expert");
-		expert.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.CTRL_MASK));
+		expert.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.CTRL_DOWN_MASK));
 		expert.setToolTipText("480 cases 99 mines");
 
-		perso = new  JRadioButtonMenuItem("Personnalis�...");
-		perso.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P,InputEvent.CTRL_MASK));
+		perso = new JRadioButtonMenuItem("Personnalis�...");
+		perso.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, InputEvent.CTRL_DOWN_MASK));
 		perso.setToolTipText("Partie avec vos votres param�tres");
-		
+
 		jeu.add(debutant);
 		jeu.add(intermediaire);
 		jeu.add(expert);
@@ -119,22 +121,21 @@ public class DFenetre extends JFrame {
 
 		jeu.addSeparator();
 		quitter = new JMenuItem("Quitter");
-		quitter.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, InputEvent.CTRL_MASK));
+		quitter.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, InputEvent.CTRL_DOWN_MASK));
 
 		jeu.add(quitter);
 
 		/* creation du menu de options */
-		options = new JMenu("\n"
-				+ "import (default package);Options");
+		options = new JMenu("\n" + "import (default package);Options");
 
 		design = new JMenuItem("Graphisme");
-		design.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G, InputEvent.CTRL_MASK));
+		design.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G, InputEvent.CTRL_DOWN_MASK));
 		design.setToolTipText("Pour choisir le style d'image");
 		options.add(design);
 		options.addSeparator();
 
 		stat = new JMenuItem("Statistiques");
-		stat.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_MASK));
+		stat.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK));
 		stat.setToolTipText("Pour connaitre les scores");
 		options.add(stat);
 
@@ -142,18 +143,17 @@ public class DFenetre extends JFrame {
 		aPropos = new JMenu("?");
 
 		aide = new JMenuItem("Aide");
-		aide.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_MASK));
+		aide.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_DOWN_MASK));
 		aide.setToolTipText("Pour obtenir de l'aide");
 		aPropos.add(aide);
 
 		aPropos.addSeparator();
-		
+
 		createur = new JMenuItem("Cr�ateurs");
-		createur.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C,InputEvent.CTRL_MASK));
+		createur.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_DOWN_MASK));
 		createur.setToolTipText("Par qui ?");
 		aPropos.add(createur);
-		
-				
+
 		/* ajout des menus � la barre */
 		barreMenus = new JMenuBar();
 		barreMenus.add(jeu);
@@ -162,8 +162,52 @@ public class DFenetre extends JFrame {
 		this.setJMenuBar(barreMenus);
 	}
 
-	public void ecouterMenu(ActionListener al) {
+	public void ecouterMenu() {
 		System.out.println("DFenetre - ecouterMenu");
+
+		ActionListener al = e -> {
+			if (e.getSource() == this.getNouvelle()) {
+				this.arretChrono();
+				this.initChrono();
+				this.nouvellePartie(this.getHauteur(), this.getLargeur(), this.getMines());
+			}
+			if (e.getSource() == this.getDebutant()) {
+				this.arretChrono();
+				this.initChrono();
+				this.nouvellePartie(9, 9, 10);
+			}
+
+			if (e.getSource() == this.getIntermediaire()) {
+				this.arretChrono();
+				this.initChrono();
+				this.nouvellePartie(16, 16, 40);
+			}
+			if (e.getSource() == this.getExpert()) {
+				this.arretChrono();
+				this.initChrono();
+				this.nouvellePartie(16, 30, 99);
+			}
+
+			if (e.getSource() == this.getPerso()) {
+				new Pref(this);
+
+			}
+
+			if (e.getSource() == this.getDesign()) {
+				new DImageChooser(this.getImageur(), this.getPanneauCentral());
+			}
+			
+			if (e.getSource() == this.getQuitter())
+				System.exit(0);
+
+			if (e.getSource() == this.getAide()) {
+				File f = new File("resources/Aide");
+				new Aide(f);
+			}
+			if (e.getSource() == this.getCreateur())
+				JOptionPane.showMessageDialog(this, " R�alis� par Igor DAURIAC et Nicolas FRANCOIS, Projet IHM",
+						"Cr�ateurs...", JOptionPane.INFORMATION_MESSAGE);
+		};
 		debutant.addActionListener(al);
 		intermediaire.addActionListener(al);
 		expert.addActionListener(al);
@@ -174,8 +218,8 @@ public class DFenetre extends JFrame {
 		stat.addActionListener(al);
 		aide.addActionListener(al);
 		createur.addActionListener(al);
-
 	}
+
 
 	public JMenuItem getNouvelle() {
 		System.out.println("DFenetre - getNouvelle");
@@ -267,6 +311,13 @@ public class DFenetre extends JFrame {
 
 	public JButton getGo() {
 		System.out.println("DFenetre - getGo");
+
+		ActionListener al = e -> {
+			this.arretChrono();
+			this.initChrono();
+			this.nouvellePartie(this.getHauteur(), this.getLargeur(), this.getMines());
+		};
+		go.addActionListener(al);
 		return go;
 	}
 
@@ -304,13 +355,12 @@ public class DFenetre extends JFrame {
 		System.out.println("DFenetre - miseAjourCompteur");
 			int nb = partie.getMines()
 			          -partie.nbrDrapeau();
-			Integer integer = new Integer(nb);
+			Integer integer = nb;
 			
 			if((nb>9) || (nb<0))
 				minesRestantes.setText(integer.toString());
 			else
 				minesRestantes.setText("0"+integer.toString());
-			
 	}
 
 	public void lancerChrono() {
@@ -343,7 +393,7 @@ public class DFenetre extends JFrame {
 		System.out.println("DFenetre - getChrono");
 		return temps.getTime();
 	}
-	
+
 	public ImageIcon getIcon(int i, int j) {
 		System.out.println("DFenetre - getIcon");
 		return imageur.getIcon(partie.getEtatCase(i, j));
@@ -353,21 +403,41 @@ public class DFenetre extends JFrame {
 		System.out.println("DFenetre - getCase");
 		try{
 			return partie.getMatrice()[i][j];
-		}
-		catch(ArrayIndexOutOfBoundsException e){ 
-			return null; 
+		} catch (ArrayIndexOutOfBoundsException e) {
+			return null;
 		}
 	}
 
 	public boolean gagne() {
 		return partie.gagne();
 	}
-	
+
 	public boolean perdu() {
 		return partie.perdu();
 	}
-	
+
 	public void devoilerCase(int i, int j) {
 		partie.devoilerCase(i, j);
 	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {}
+
+	@Override
+	public void windowClosing(WindowEvent e) {}
+
+	@Override
+	public void windowClosed(WindowEvent e) {}
+
+	@Override
+	public void windowIconified(WindowEvent e) {}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {}
+
+	@Override
+	public void windowActivated(WindowEvent e) {}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {}
 }

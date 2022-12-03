@@ -1,11 +1,5 @@
 package main;
-import java.io.*;
-import java.util.*;
-
-import controllers.EcouteurFenetre;
-import controllers.EcouteurGo;
-import controllers.EcouteurMenu;
-import ihm.DFenetre;
+import other.DFenetre;
 import metier.DPartie;
 
 public class Main{
@@ -13,14 +7,7 @@ public class Main{
 			DPartie partie = new DPartie(9,9,10);
 			DFenetre fenetre = new DFenetre(partie);
 		
-			EcouteurGo e = new EcouteurGo(fenetre,partie);
-			fenetre.getGo().addActionListener(e);
-		
-			EcouteurFenetre ecouteurFenetre = new EcouteurFenetre(fenetre);
-			fenetre.addWindowListener(ecouteurFenetre);
-		
-			EcouteurMenu ecouteurMenu = new EcouteurMenu(fenetre);
-			fenetre.ecouterMenu(ecouteurMenu);
-	}	
+			fenetre.getGo();
+			fenetre.ecouterMenu();
+	}
 }
-
