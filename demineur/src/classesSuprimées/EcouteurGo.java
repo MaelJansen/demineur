@@ -1,4 +1,4 @@
-package controllers;
+package classesSuprimées;
 import java.awt.event.*;
 
 import ihm.DFenetre;
@@ -8,7 +8,7 @@ public class EcouteurGo implements ActionListener{
 	
 	DFenetre fenetre;
 	
-	public EcouteurGo(DFenetre f, DPartie p){
+	public EcouteurGo(DFenetre f){
 		fenetre = f;
 	}
 	
