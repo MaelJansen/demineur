@@ -24,4 +24,4 @@ L'avancement du projet :
 
 * Commentaires :
 
-    La deuxième partie de l'étape 7 (diminuer le nombre d'appel n'a pas été terminée)
+    La deuxième partie de l'étape 7 (diminuer le nombre d'appel) n'a pas été terminée.
