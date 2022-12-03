@@ -40,10 +40,6 @@ public class Pref implements ActionListener, FocusListener{
 		
 		maFen.setSize(300, 200);
 		maFen.setVisible(true);
-		/*
-		while(maFen.isVisible()){
-		}
-		*/
 	}
 	
 	
@@ -53,9 +49,9 @@ public class Pref implements ActionListener, FocusListener{
 		partie = p;
 		System.out.println("Choix");
 		
-		hauteur = fenetre.getHauteur();
-		largeur = fenetre.getLargeur();
-		mines = fenetre.getMines();
+		hauteur = partie.getHauteur();
+		largeur = partie.getLargeur();
+		mines = partie.getMines();
 		
 		miseEnPage();
 		ajoutEcouteurs();

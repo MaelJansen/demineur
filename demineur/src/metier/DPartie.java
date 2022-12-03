@@ -3,7 +3,7 @@ import java.util.Random;
 
 import javax.swing.ImageIcon;
 
-public class DPartie {
+public class DPartie implements IDPartie{
 	private int hauteur, largeur, nbMines; // parametres de la partie
 	private DCase[][] matrice; 
 	private int caseNonMineeRestante;
@@ -35,22 +35,17 @@ public class DPartie {
 		return aExplose();
 	}
 	
-	public DCase getCase(int i, int j)  {
-		try{
-			return matrice[i][j];
-		}
-		catch(ArrayIndexOutOfBoundsException e){ return null; }
-	
-	}
-	
+	@Override
 	public int getHauteur(){
 		return hauteur;
 	}
 	
+	@Override
 	public int getLargeur(){
 		return largeur;
 	}
 	
+	@Override
 	public int getMines(){
 		return nbMines;
 	}
@@ -215,6 +210,7 @@ public class DPartie {
 		}
 	}
 
+	@Override
 	public int nbrDrapeau(){
 		int compteur = 0;
 		for(int i=0;i<hauteur;i++)
@@ -260,7 +256,8 @@ public class DPartie {
 			
 		}
 	}
-
+	
+	@Override
 	public EtatCase getEtatCase(int i, int j) {
 		DCase dcase = null;
 		try {
@@ -278,4 +275,8 @@ public class DPartie {
 		return dcase.getEtatCase(EtatPartie.ENCOURS);
 	}
 	
+	@Override
+	public DCase[][] getMatrice(){
+		return matrice;
+	}
 }
