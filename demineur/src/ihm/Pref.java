@@ -23,6 +23,13 @@ public class Pref implements ActionListener, FocusListener{
 	
 	private DFenetre fenetre;
 	
+	/**
+	 * Un constructeur de la classe Pref
+	 * 
+	 * @param lng La hauteur de la fenêtre des préférences (un entier)
+	 * @param lrg La largeur de la fenêtre des préférences (un entier)
+	 * @param nbMines
+	 */
 	public Pref(int lng, int lrg, int nbMines){
 		maFen = new JFrame("Preferences");
 		
@@ -39,7 +46,11 @@ public class Pref implements ActionListener, FocusListener{
 		maFen.setVisible(true);
 	}
 	
-	
+	/**
+	 * Un constructeur de la classe Pref
+	 * 
+	 * @param fen La fenêtre ouverte
+	 */
 	public Pref(DFenetre fen){
 		maFen = new JFrame("Preferences");
 		fenetre = fen;
@@ -58,7 +69,11 @@ public class Pref implements ActionListener, FocusListener{
 		
 	}
 
-
+	/**
+	 * Permet d'ajouter les labels Largeur, Hauteur et Mines
+	 * 
+	 * @return Un composant de la classe JPanel
+	 */
 	private JPanel label(){
 		/* Creation */
 		jlLargeur = new JLabel("Largeur");
@@ -74,6 +89,11 @@ public class Pref implements ActionListener, FocusListener{
 		return panel;
 	}
 	
+	/**
+	 * Permet d'ajouter les zones de texte pour changer la hauteur, la largeur et le nombre de mines du jeu
+	 * 
+	 * @return Un composant de la classe JPanel
+	 */
 	private JPanel saisie(){
 		/* Creation */
 		jtfLargeur = new JTextField(Integer.toString(largeur));
@@ -89,6 +109,11 @@ public class Pref implements ActionListener, FocusListener{
 		return panel;
 	}
 	
+	/**
+	 * Permet d'ajouter les boutons Ok et Annuler
+	 * 
+	 * @return Un composant de la classe JPanel
+	 */
 	private JPanel boutons(){
 		/* Creation */
 		btnOk = new JButton("Ok");
@@ -102,6 +127,9 @@ public class Pref implements ActionListener, FocusListener{
 		return panel;
 	}
 	
+	/**
+	 * Permet d'ajouter des écouteurs aux boutons et aux zones de texte
+	 */
 	private void ajoutEcouteurs(){
 		btnOk.addActionListener(this);
 		btnAnnuler.addActionListener(this);
@@ -111,10 +139,13 @@ public class Pref implements ActionListener, FocusListener{
 		jtfMines.addFocusListener(this);
 	}
 	
+	/**
+	 * Permet d'ajouter les labels, zones de texte et boutons à la fenêtre des préférences
+	 */
 	private void miseEnPage(){
 		Container c = maFen.getContentPane();
 		
-		//  Ajout des lables, zones de saisie et des boutons
+		//  Ajout des labels, zones de saisie et des boutons
 		Container container = new Container();
 		container.setLayout(new BorderLayout(20, 0));
 		container.add(label(), BorderLayout.WEST);
@@ -126,8 +157,9 @@ public class Pref implements ActionListener, FocusListener{
 		
 	}
 	
-
-	
+	/**
+	 * Appelé quand une action se produit
+	 */
 	public void actionPerformed(ActionEvent e){
 		
 		if(e.getSource().equals(btnOk)){
@@ -152,6 +184,9 @@ public class Pref implements ActionListener, FocusListener{
 		
 	}
 	
+	/**
+	 * Appelé quand un composant récupère la priorité sur le clavier
+	 */
 	public void focusGained(FocusEvent e){
 	}
 	
@@ -174,22 +209,47 @@ public class Pref implements ActionListener, FocusListener{
 		
 	}
 	
+	/**
+	 * Permet de savoir si les changements de préférences sont validés
+	 * 
+	 * @return True si les changements sont validés, False sinon
+	 */
 	public boolean getValidation(){
 		return validation;
 	}
 	
+	/**
+	 * Permet de connaître la largeur de la fenêtre
+	 * 
+	 * @return Un entier
+	 */
 	public int getLargeur(){
 		return largeur;
 	}
 	
+	/**
+	 * Permet de connaître la hauteur de la fenêtre
+	 * 
+	 * @return Un entier
+	 */
 	public int getHauteur(){
 		return hauteur;
 	}
 	
+	/**
+	 * Permet de connaître le nombre de mines choisies
+	 * 
+	 * @return Un entier
+	 */
 	public int getMines(){
 		return mines;
 	}
 	
+	/**
+	 * Permet de lancer la fenêtre de préférences de l'application
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args){
 		Pref p = new Pref(10, 10 ,10);	
 		System.out.println("Fin");

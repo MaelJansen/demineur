@@ -11,11 +11,20 @@ public class EcouteurSouris  implements MouseListener, MouseMotionListener{
 	private int sourisX, sourisY;
 	private boolean gauchePresse;
 	
+	/**
+	 * Le constructeur de la classe EcouteurSouris
+	 * 
+	 * @param f La fenêtre ouverte
+	 * @param p La partie en cours
+	 */
 	public EcouteurSouris(DFenetre f, DPartie p){
 		fenetre = f;
 		gauchePresse = false;
 	}
 	
+	/**
+	 * Appelé quand l'un des boutons de la souris est relâché sur un composant
+	 */
 	public void mouseReleased(MouseEvent me){
 		sourisX = me.getX()/20;
 		sourisY = me.getY()/20;
@@ -56,6 +65,9 @@ public class EcouteurSouris  implements MouseListener, MouseMotionListener{
 		me.getComponent().repaint();
 	}
 	
+	/**
+	 * Appelé quand l'un des boutons de la souris est pressé sur un composant
+	 */
 	public void mousePressed(MouseEvent me){
 		System.out.println("  /////////// ");
 		System.out.println("ECOUTEURSOURIS - MOUSEPRESSED ");
@@ -80,17 +92,27 @@ public class EcouteurSouris  implements MouseListener, MouseMotionListener{
 		me.getComponent().repaint();
 	}
 	
+	/**
+	 * Appelé quand la souris quitte un composant
+	 */
 	public void mouseExited(MouseEvent me){
 		if(gauchePresse)
 			fenetre.goCool();
 	}
 	
+	/**
+	 * Appelé quand la souris entre dans un composant
+	 */
 	public void mouseEntered(MouseEvent me){
 		if(gauchePresse)
 			fenetre.goOups();	
 	}
 	
-	
+	/**
+	 * Appelé lorsqu'un bouton de la souris est enfoncé sur un composant, puis glissé. Les événements MOUSE_DRAGGED 
+	 * continueront d'être transmis au composant d'où provient le glissement jusqu'à ce que le bouton de la souris 
+	 * soit relâché
+	 */
 	public void mouseDragged(MouseEvent me){
 		int x = me.getX()/20;
 		int y = me.getY()/20;
@@ -110,12 +132,14 @@ public class EcouteurSouris  implements MouseListener, MouseMotionListener{
 		
 		}	
 	
-	} 
+	}
+	
 	/* Non implement�  */
     public void mouseMoved(MouseEvent me){
     	
     }  
     
+    /* Non implement�  */
     public void mouseClicked(MouseEvent e){
     }
 	

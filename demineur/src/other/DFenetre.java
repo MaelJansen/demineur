@@ -36,6 +36,11 @@ public class DFenetre extends JFrame implements WindowListener {
 	private DImageur imageur;
 	private DPanneau centre;
 
+	/**
+	 * Le constructeur de la classe DFenetre
+	 * 
+	 * @param p La partie en cours
+	 */
 	public DFenetre(DPartie p) {
 		super("Demineur");
 		menu();
@@ -45,6 +50,11 @@ public class DFenetre extends JFrame implements WindowListener {
 		connecterPartie(p);
 	}
 	
+	/**
+	 * Permet de (re)démarrer une partie
+	 * 
+	 * @param p La partie en cours
+	 */
 	public void connecterPartie(DPartie p){
 		System.out.println("DFenetre - connecterPartie");
 
@@ -75,12 +85,22 @@ public class DFenetre extends JFrame implements WindowListener {
 		this.repaint();
 
 	}
-
+	
+	/**
+	 * Permet de lancer une nouvelle partie
+	 * 
+	 * @param h Le nombre de cases en hauteur de la partie (un entier)
+	 * @param l Le nombre de cases en largeur de la partie (un entier)
+	 * @param nbMines Le nombre de mines dans la partie (un entier)
+	 */
 	public void nouvellePartie(int h, int l, int nbMines) {
 		partie.nouvellePartie(h, l, nbMines);
 		connecterPartie(partie);
 	}
 
+	/**
+	 * Permet de créer le menu pour changer la difficulté de la partie
+	 */
 	private void menu() {
 		System.out.println("DFenetre - menu");
 		/* creation du menu de jeu */
@@ -162,6 +182,9 @@ public class DFenetre extends JFrame implements WindowListener {
 		this.setJMenuBar(barreMenus);
 	}
 
+	/**
+	 * Permet de redémarrer une partie avec une difficulté différente
+	 */
 	public void ecouterMenu() {
 		System.out.println("DFenetre - ecouterMenu");
 
@@ -220,60 +243,119 @@ public class DFenetre extends JFrame implements WindowListener {
 		createur.addActionListener(al);
 	}
 
-
+	/**
+	 * Permet de récupérer les paramètres d'une nouvelle partie
+	 * 
+	 * @return Un objet de la classe JMenuItem
+	 */
 	public JMenuItem getNouvelle() {
 		System.out.println("DFenetre - getNouvelle");
 		return nouvelle;
 	}
 
+	/**
+	 * Permet de récupérer les paramètres d'une partie en débutant
+	 * 
+	 * @return Un objet de la classe JMenuItem 
+	 */
 	public JMenuItem getDebutant() {
 		System.out.println("DFenetre - getDebutant");
 		return debutant;
 	}
 
+	/**
+	 * Permet de récupérer les paramètres d'une partie en intermédiaire
+	 * 
+	 * @return Un objet de la classe JMenuItem 
+	 */
 	public JMenuItem getIntermediaire() {
 		System.out.println("DFenetre - getIntermediaire");
 		return intermediaire;
 	}
 
+	/**
+	 * Permet de récupérer les paramètres d'une partie en expert
+	 * 
+	 * @return Un objet de la classe JMenuItem 
+	 */
 	public JMenuItem getExpert() {
 		System.out.println("DFenetre - getExpert");
 		return expert;
 	}
 
+	/**
+	 * Permet de récupérer les paramètres d'une partie personnalisée
+	 * 
+	 * @return Un objet de la classe JMenuItem 
+	 */
 	public JMenuItem getPerso() {
 		System.out.println("DFenetre - getPerso");
 		return perso;
 	}
 
+	/**
+	 * Permet de récupérer l'item design
+	 * 
+	 * @return Un objet de la classe JMenuItem 
+	 */
 	public JMenuItem getDesign() {
 		System.out.println("DFenetre - getDesign");
 		return design;
 	}
 
+	/**
+	 * Permet de récupérer l'item quitter
+	 * 
+	 * @return Un objet de la classe JMenuItem 
+	 */
 	public JMenuItem getQuitter() {
 		System.out.println("DFenetre - getQuitter");
 		return quitter;
 	}
 
+	/**
+	 * Permet de récupérer l'item aide
+	 * 
+	 * @return Un objet de la classe JMenuItem 
+	 */
 	public JMenuItem getAide() {
 		System.out.println("DFenetre - getAide");
 		return aide;
 	}
 
+	/**
+	 * Permet de récupérer l'item créateur
+	 * 
+	 * @return Un objet de la classe JMenuItem 
+	 */
 	public JMenuItem getCreateur() {
 		System.out.println("DFenetre - getCreateur");
 		return createur;
 	}
 
+	/**
+	 * Permet de récupérer le nombre de cases en hauteur de la partie
+	 * 
+	 * @return Un entier
+	 */
 	public int getHauteur() {
 		return partie.getHauteur();
 	}
 
+	/**
+	 * Permet de récupérer le nombre de cases en largeur de la partie
+	 * 
+	 * @return Un entier
+	 */
 	public int getLargeur() {
 		return partie.getLargeur();
 	}
 
+	/**
+	 * Permet de récupérer le nombre de mines de la partie
+	 * 
+	 * @return Un entier
+	 */
 	public int getMines() {
 		return partie.getMines();
 	}
@@ -309,6 +391,11 @@ public class DFenetre extends JFrame implements WindowListener {
 
 	}
 
+	/**
+	 * Permet de récupérer le bouton go (bouton avec un emoji au milieu)
+	 * 
+	 * @return Un objet de la classe JButton
+	 */
 	public JButton getGo() {
 		System.out.println("DFenetre - getGo");
 
@@ -321,36 +408,61 @@ public class DFenetre extends JFrame implements WindowListener {
 		return go;
 	}
 
+	/**
+	 * Permet de récupérer le plateau de la partie
+	 * 
+	 * @return Un objet de la classe DPanneau
+	 */
 	public DPanneau getPanneauCentral() {
 		System.out.println("DFenetre - getPanneauCentral");
 		return centre;
 	}
 
+	/**
+	 * Permet de récupérer toutes les images utilisées dans une partie
+	 * 
+	 * @return Un objet de la classe DImageur
+	 */
 	public DImageur getImageur() {
 		System.out.println("DFenetre - getImageur");
 		return imageur;
 	}
 
+	/**
+	 * Change l'image du bouton go (bouton avec un emoji au milieu)
+	 */
 	public void goPerdu() {
 		System.out.println("DFenetre - goPerdu");
 		go.setIcon(new ImageIcon(imageur.getRepertoire() + "/Perdu.GIF"));
 	}
 
+	/**
+	 * Change l'image du bouton go (bouton avec un emoji au milieu)
+	 */
 	public void goGagne() {
 		System.out.println("DFenetre - goGagne");
 		go.setIcon(new ImageIcon(imageur.getRepertoire() + "/Gagne.GIF"));
 	}
 
+	/**
+	 * Change l'image du bouton go (bouton avec un emoji au milieu)
+	 */
 	public void goOups() {
 		System.out.println("DFenetre - goOups");
 		go.setIcon(new ImageIcon(imageur.getRepertoire() + "/Oups.GIF"));
 	}
 
+	/**
+	 * Change l'image du bouton go (bouton avec un emoji au milieu)
+	 */
 	public void goCool() {
 		System.out.println("DFenetre - goCool");
 		go.setIcon(new ImageIcon(imageur.getRepertoire() + "/Cool.GIF"));
 	}
 	
+	/**
+	 * Permet de mettre à jour l'affichage du nombre de mines restantes en fonction du nombre de drapeau posé
+	 */
 	public void miseAJourCompteur(){
 		System.out.println("DFenetre - miseAjourCompteur");
 			int nb = partie.getMines()
@@ -363,42 +475,76 @@ public class DFenetre extends JFrame implements WindowListener {
 				minesRestantes.setText("0"+integer.toString());
 	}
 
+	/**
+	 * Permet de lancer le chronomètre de la partie
+	 */
 	public void lancerChrono() {
 		System.out.println("DFenetre - lancerChrono");
 		if (!temps.estActif())
 			temps.getThread().start();
 	}
 
+	/**
+	 * Permet d'arrêter le chronomètre de la partie
+	 */
 	public void arretChrono() {
 		System.out.println("DFenetre - arretChrono");
 		temps.stop();
 	}
 
+	/**
+	 * Permet d'initialiser le chronomètre de la partie (le met à 0)
+	 */
 	public void initChrono() {
 		System.out.println("DFenetre - initChrono");
 		temps.initChrono();
 	}
 
+	/**
+	 * Permet de mettre le chronomètre en pause
+	 */
 	public void pauseChrono() {
 		System.out.println("DFenetre - pauseChrono");
 		temps.mettreEnPause();
 	}
 
+	/**
+	 * Permet de reprendre le décompte du chronomètre
+	 */
 	public void repriseChrono() {
 		System.out.println("DFenetre - repriseChrono");
 		temps.enleverPause();
 	}
 
+	/**
+	 * Permet de récupérer le temps du chronomètre
+	 * 
+	 * @return Un entiers
+	 */
 	public int getChrono() {
 		System.out.println("DFenetre - getChrono");
 		return temps.getTime();
 	}
 
+	/**
+	 * Permet de récupérer l'image d'une case avec ses coordonnées
+	 * 
+	 * @param i Un entier
+	 * @param j Un entier
+	 * @return Un objet de la classe ImageIcon
+	 */
 	public ImageIcon getIcon(int i, int j) {
 		System.out.println("DFenetre - getIcon");
 		return imageur.getIcon(partie.getEtatCase(i, j));
 	}
 		
+	/**
+	 * Permet de récupérer une case avec ses coordonnées
+	 * 
+	 * @param i Un entier
+	 * @param j Un entier
+	 * @return Un objet de la classe DCase
+	 */
 	public DCase getCase(int i, int j)  {
 		System.out.println("DFenetre - getCase");
 		try{
@@ -408,36 +554,73 @@ public class DFenetre extends JFrame implements WindowListener {
 		}
 	}
 
+	/**
+	 * Permet de savoir si la partie est gagnée
+	 * 
+	 * @return True si la partie est gagnée, False sinon
+	 */
 	public boolean gagne() {
 		return partie.gagne();
 	}
 
+	/**
+	 * Permet de savoir si une partie est perdue
+	 * 
+	 * @return True si la partie est perdue, False sinon
+	 */
 	public boolean perdu() {
 		return partie.perdu();
 	}
 
+	/**
+	 * permet de dévoiler une case
+	 * 
+	 * @param i Un entier
+	 * @param j Un entier
+	 */
 	public void devoilerCase(int i, int j) {
 		partie.devoilerCase(i, j);
 	}
 
+	/**
+	 * Appelé quand une fenêtre est ouverte
+	 */
 	@Override
 	public void windowOpened(WindowEvent e) {}
 
+	/**
+	 * Appelé quand une fenêtre est fermé avec le menu système de la fenêtre
+	 */
 	@Override
 	public void windowClosing(WindowEvent e) {}
 
+	/**
+	 * Appelé quand la fenêtre est fermé
+	 */
 	@Override
 	public void windowClosed(WindowEvent e) {}
 
+	/**
+	 * Appelé quand une fenêtre passe d'un état normal à réduit
+	 */
 	@Override
 	public void windowIconified(WindowEvent e) {}
 
+	/**
+	 * Appelé quand une fenêtre passe d'un état réduit à normal
+	 */
 	@Override
 	public void windowDeiconified(WindowEvent e) {}
 
+	/**
+	 * Appelé quand la fenêtre est définie comme la fenêtre active
+	 */
 	@Override
 	public void windowActivated(WindowEvent e) {}
 
+	/**
+	 * Appelé quand la fenêtre est définie comme une fenêtre non active
+	 */
 	@Override
 	public void windowDeactivated(WindowEvent e) {}
 }

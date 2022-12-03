@@ -5,7 +5,12 @@ import java.io.*;
 public class DImageChooser extends JFileChooser {
 	private static final long serialVersionUID = 1L;
 
-
+	/**
+	 * Le constructeur de la classe DImageChooser
+	 * 
+	 * @param imageur Un composant DImageur
+	 * @param panneau Un composant DPanneau
+	 */
 	public DImageChooser(DImageur imageur, DPanneau panneau){
 		super("./resources/Images/");
 		setApproveButtonText("OK");
@@ -25,7 +30,7 @@ public class DImageChooser extends JFileChooser {
 		}
 	}
 
-
+	
 	public String estValide(String rep){
 		int i;
 		File path = new File(rep);

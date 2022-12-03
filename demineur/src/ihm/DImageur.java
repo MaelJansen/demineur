@@ -6,18 +6,31 @@ import javax.swing.*;
 public class DImageur {
 
 	public String repertoire = "resources/Images/Classic";
-
-	public DImageur() {
-	}
-
+	
+	/**
+	 * Permet de récupérer le répertoire des images
+	 * 
+	 * @return Une chaîne de cararctère
+	 */
 	public String getRepertoire() {
 		return repertoire;
 	}
-
+	
+	/**
+	 * Permet de modifier le répertoir des images
+	 * 
+	 * @param s Une chaîne de caractère
+	 */
 	public void setRepertoire(String s) {
 		repertoire = s;
 	}
-
+	
+	/**
+	 * Permet de modifier l'image d'une case en fonction de son état
+	 * 
+	 * @param ec L'état de la case
+	 * @return Un composant de la classe EtatCase
+	 */
 	public ImageIcon getIcon(EtatCase ec) {
 		switch (ec) {
 		case SELECT :

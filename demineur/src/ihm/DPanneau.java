@@ -10,6 +10,13 @@ public class DPanneau extends JPanel{
 	private DFenetre fenetre;
 	private int hauteur, largeur;
 	
+	/**
+	 * Le constructeur de la classe DPanneau
+	 * 
+	 * @param fe La fenêtre ouverte
+	 * @param h La hauteur de la fenêtre (un entier)
+	 * @param l La largeur de la fenêtre (un entier)
+	 */
 	public DPanneau(DFenetre fe, int h, int l){
 		super();
 		fenetre = fe;
@@ -17,6 +24,9 @@ public class DPanneau extends JPanel{
 		hauteur = h;
 	}
 	
+	/**
+	 * Permet de (re)dessiner les cases du jeu
+	 */
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		for(int i=0; i<hauteur; i++)

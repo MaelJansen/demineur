@@ -7,11 +7,25 @@ public class DPartie implements IDPartie{
 	private DCase[][] matrice;
 	private int caseNonMineeRestante;
 	private boolean explosion;
-
+	
+	/**
+	 * Le constructeur de la classe DPartie
+	 * 
+	 * @param h Le nombre de case en hauteur de la partie (une entier)
+	 * @param l Le nombre de case en largeur de la partie (une entier)
+	 * @param nb Le nombre de mines dans la partie 
+	 */
 	public DPartie(int h, int l, int nb) {
 		nouvellePartie(h, l, nb);
 	}
-
+	
+	/**
+	 * Permet de lancer une nouvelle partie
+	 * 
+	 * @param h Le nombre de case en hauteur de la partie (une entier)
+	 * @param l Le nombre de case en largeur de la partie (une entier)
+	 * @param nb Le nombre de mines dans la partie 
+	 */
 	public void nouvellePartie(int h, int l, int nb) {
 		System.out.println("DPartie - nouvellePartie");
 		hauteur = h;
@@ -27,34 +41,65 @@ public class DPartie implements IDPartie{
 		caseNonMineeRestante = hauteur * largeur - nbMines;
 	}
 
+	/**
+	 * Permet de savoir si la partie est gagnée
+	 * 
+	 * @return True si la partie est gagnée, False sinon
+	 */
 	public boolean gagne() {
 		System.out.println("DPartie - gagne");
 		return (getCaseNonMineeRestante() == 0);
 	}
 
+	/**
+	 * Permet de savoir si la partie est perdue
+	 * 
+	 * @return True si la partie est perdue, False sinon
+	 */
 	public boolean perdu() {
 		System.out.println("DPartie - perdu");
 		return aExplose();
 	}
 
+	/**
+	 * Permet de connaître la nombre de case en hauteur de la partie
+	 * 
+	 * return Un entier
+	 */
 	@Override
 	public int getHauteur() {
 		System.out.println("DPartie - getHauteur");
 		return hauteur;
 	}
 
+	/**
+	 * Permet de connaître la nombre de case en largeur de la partie
+	 * 
+	 * return Un entier
+	 */
 	@Override
 	public int getLargeur() {
 		System.out.println("DPartie - getLargeur");
 		return largeur;
 	}
 
+	/**
+	 * Permet de connaître le nombre de mines dans la partie
+	 * 
+	 * return Un entier
+	 */
 	@Override
 	public int getMines() {
 		System.out.println("DPartie - getMines");
 		return nbMines;
 	}
 
+	/**
+	 * Permet de dévoiler une case
+	 * 
+	 * @param i Un entier
+	 * @param j Un entier
+	 */
 	public void devoilerCase(int i, int j) {
 		System.out.println("DPartie - devoilerCase");
 		/* Case d�couverte */
@@ -128,11 +173,20 @@ public class DPartie implements IDPartie{
 
 	}
 
+	/**
+	 * Permet de poser ou enlerver un drapeau sur une case non découverte
+	 * 
+	 * @param i Un entier
+	 * @param j Un entier
+	 */
 	public void drapeauAction(int i, int j) {
 		System.out.println("DPartie - drapeauAction");
 		matrice[i][j].drapeauAction();
 	}
 
+	/**
+	 * Permet de compter le nombre de mines autour de chaque case 
+	 */
 	private void preparerAlentour() {
 		System.out.println("DPartie - preparerAlentour");
 		int minesCompteur;
@@ -194,9 +248,11 @@ public class DPartie implements IDPartie{
 				}
 
 			}
-
 	}
 
+	/**
+	 * Permet de poser toutes les bombes de la partie de manière aléatoire
+	 */
 	private void miner() {
 		System.out.println("DPartie - miner");
 		int x, y;
@@ -213,6 +269,11 @@ public class DPartie implements IDPartie{
 		}
 	}
 
+	/**
+	 * Permet de compter le nombre de drapeau de la partie
+	 * 
+	 * return Un entier
+	 */
 	@Override
 	public int nbrDrapeau() {
 		System.out.println("DPartie - nbrDrapeau");
@@ -225,44 +286,31 @@ public class DPartie implements IDPartie{
 		return compteur;
 	}
 
+	/**
+	 * Permet de savoir si le joueur a cliqué sur une case avec une bombe
+	 * 
+	 * @return True si une bombe a été découverte, False sinon
+	 */
 	public boolean aExplose() {
 		System.out.println("DPartie - aExplose");
 		return explosion;
 	}
 
+	/**
+	 * Permet de connaître le nombre de cases non minées et non découvertes
+	 * 
+	 * @return Un entier
+	 */
 	public int getCaseNonMineeRestante() {
 		System.out.println("DPartie - getCaseNonMineeRestante");
 		return caseNonMineeRestante;
 	}
 
-	public void afficher() {
-		System.out.print("DPartie - afficher");
-		System.out.println("****carte****");
-		for (int i = 0; i < hauteur; i++) {
-			for (int j = 0; j < largeur; j++) {
-				if (matrice[i][j].estMine())
-					System.out.print("M ");
-				else
-					System.out.print(matrice[i][j].getMinesAlentour() + " ");
-			}
-			System.out.println("");
-
-		}
-		System.out.println("****carte connue****");
-		for (int i = 0; i < hauteur; i++) {
-			for (int j = 0; j < largeur; j++) {
-				if (!matrice[i][j].estDecouverte())
-					System.out.print("* ");
-				else if (matrice[i][j].estMine())
-					System.out.print("M ");
-				else
-					System.out.print(matrice[i][j].getMinesAlentour() + " ");
-			}
-			System.out.println("");
-
-		}
-	}
-
+	/**
+	 * Permet de connaître l'état d'une case
+	 * 
+	 * return Un composant de la classe EtatCase
+	 */
 	@Override
 	public EtatCase getEtatCase(int i, int j) {
 		System.out.println("DPartie - getEtatCase");
@@ -282,6 +330,11 @@ public class DPartie implements IDPartie{
 		return dcase.getEtatCase(EtatPartie.ENCOURS);
 	}
 
+	/**
+	 * Permet de récupérer le tableau à 2 dimensions simulant le plateau du jeu
+	 * 
+	 * return Un tableau à 2 dimensions d'objet de la classe DCase
+	 */
 	@Override
 	public DCase[][] getMatrice() {
 		System.out.println("DPartie - getMatrice");

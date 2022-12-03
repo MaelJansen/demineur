@@ -53,6 +53,11 @@ public class Aide {
 		} catch (Exception ioe) {}
 	}
 
+	/**
+	 * Permet de créer la fenêtre avec du texte d'aide 
+	 * 
+	 * @return
+	 */
 	private JPanel centerPanel() {
 		JPanel panel = new JPanel();
 		panel.setLayout(new BorderLayout());
@@ -65,6 +70,11 @@ public class Aide {
 		return panel;
 	}
 
+	/**
+	 * Permet de créer un bouton fermer et de l'ajouter à la fenêtre d'aide
+	 * 
+	 * @return Un objet de la classe JPanel
+	 */
 	private JPanel bouton() {
 		JPanel panel = new JPanel();
 		btnFermer = new JButton("Fermer");
@@ -75,6 +85,11 @@ public class Aide {
 		return panel;
 	}
 
+	/**
+	 * Le constructeur de la classe Aide
+	 * 
+	 * @param rep Un fichier
+	 */
 	public Aide(File rep) {
 
 		// creation de l'arboresence
@@ -109,6 +124,11 @@ class HandlerArbre extends DefaultHandler {
 	File fichier;
 	// creer pile
 
+	/**
+	 * Le constructeur de la classe HandlerArbre
+	 * 
+	 * @param f Un fichier
+	 */
 	public HandlerArbre(File f) {
 		fichier = f;
 		branche = new DefaultMutableTreeNode(fichier.getName());
