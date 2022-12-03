@@ -25,3 +25,5 @@ L'avancement du projet :
 * Commentaires :
 
     La deuxième partie de l'étape 7 (diminuer le nombre d'appel) n'a pas été terminée.
+
+    Les étapes 4 et 5 on été faites sur la même branche et les étapes 0, 1 et 2 on été faites simultanément sur les 2 premières branches.
