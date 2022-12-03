@@ -24,7 +24,6 @@ public class Pref implements ActionListener, FocusListener{
 	
 	
 	private DFenetre fenetre;
-	private DPartie partie;
 	
 	public Pref(int lng, int lrg, int nbMines){
 		maFen = new JFrame("Preferences");
@@ -43,10 +42,9 @@ public class Pref implements ActionListener, FocusListener{
 	}
 	
 	
-	public Pref(DFenetre fen, DPartie p){
+	public Pref(DFenetre fen){
 		maFen = new JFrame("Preferences");
 		fenetre = fen;
-		partie = p;
 		System.out.println("Choix");
 		
 		hauteur = partie.getHauteur();
@@ -147,8 +145,7 @@ public class Pref implements ActionListener, FocusListener{
 			fenetre.arretChrono();
 			fenetre.initChrono();
 		
-			partie.nouvellePartie(hauteur,largeur,mines);
-			fenetre.connecterPartie(partie);	
+			fenetre.nouvellePartie(hauteur,largeur,mines);
 				
 		}
 		else{
