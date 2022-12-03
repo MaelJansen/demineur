@@ -217,15 +217,15 @@ public class DFenetre extends JFrame {
 	}
 
 	public int getHauteur() {
-		return nb_lgn;
+		return partie.getHauteur();
 	}
 
 	public int getLargeur() {
-		return nb_col;
+		return partie.getLargeur();
 	}
 
 	public int getMines() {
-		return nb_mines;
+		return partie.getMines();
 	}
 
 	private void miseEnPage() {
