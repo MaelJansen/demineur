@@ -47,6 +47,7 @@ public class DFenetre extends JFrame implements WindowListener {
 	
 	public void connecterPartie(DPartie p){
 		System.out.println("DFenetre - connecterPartie");
+
 		partie = p;
 
 		miseAJourCompteur();
@@ -161,11 +162,9 @@ public class DFenetre extends JFrame implements WindowListener {
 		this.setJMenuBar(barreMenus);
 	}
 
-	public void ecouterMenu(ActionListener al) {
-		System.out.println("DFenetre - ecouterMenu");
-	}
-		
 	public void ecouterMenu() {
+		System.out.println("DFenetre - ecouterMenu");
+
 		ActionListener al = e -> {
 			if (e.getSource() == this.getNouvelle()) {
 				this.arretChrono();
@@ -219,8 +218,8 @@ public class DFenetre extends JFrame implements WindowListener {
 		stat.addActionListener(al);
 		aide.addActionListener(al);
 		createur.addActionListener(al);
-
 	}
+
 
 	public JMenuItem getNouvelle() {
 		System.out.println("DFenetre - getNouvelle");
