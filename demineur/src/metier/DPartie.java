@@ -1,8 +1,6 @@
 package metier;
 import java.util.Random;
 
-import javax.swing.ImageIcon;
-
 public class DPartie implements IDPartie{
 	private int hauteur, largeur, nbMines; // parametres de la partie
 	private DCase[][] matrice; 
