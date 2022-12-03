@@ -1,11 +1,11 @@
-package metier;
+package ihm;
 import javax.swing.*;
-import java.awt.event.*;
 import java.io.*;
-import java.util.*;
 
 public class DImageChooser extends JFileChooser {
-	
+	private static final long serialVersionUID = 1L;
+
+
 	public DImageChooser(DImageur imageur, DPanneau panneau){
 		super("./resources/Images/");
 		setApproveButtonText("OK");

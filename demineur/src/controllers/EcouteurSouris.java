@@ -1,11 +1,8 @@
 package controllers;
 import java.awt.event.*;
-import java.io.*;
 
-import ihm.DFenetre;
-import metier.DCase;
+import other.DFenetre;
 import metier.DPartie;
-import metier.IDPartie;
 
 
 public class EcouteurSouris  implements MouseListener, MouseMotionListener{
@@ -26,7 +23,7 @@ public class EcouteurSouris  implements MouseListener, MouseMotionListener{
 		  if(!fenetre.perdu() && !fenetre.gagne() 
 				  && !(fenetre.getCase(sourisY,sourisX).yaDrapeau())){
 			
-			if(me.getButton()==me.BUTTON1){
+			if(me.getButton()==MouseEvent.BUTTON1){
 				gauchePresse = false;
 				try{
 					fenetre.getCase(sourisY,sourisX).selectionner();
@@ -66,12 +63,12 @@ public class EcouteurSouris  implements MouseListener, MouseMotionListener{
 			
 			
 			
-			if(me.getButton()==me.BUTTON1){
+			if(me.getButton()==MouseEvent.BUTTON1){
 				gauchePresse = true;
 				fenetre.getCase(sourisY,sourisX).selectionner();
 				fenetre.goOups();
 			}	
-			if(me.getButton()==me.BUTTON3){
+			if(me.getButton()==MouseEvent.BUTTON3){
 				fenetre.getCase(sourisY,sourisX).drapeauAction();;					
 				fenetre.miseAJourCompteur();
 				

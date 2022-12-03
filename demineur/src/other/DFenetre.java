@@ -1,22 +1,20 @@
-package ihm;
+package other;
+import ihm.DImageur;
+import ihm.DPanneau;
 
 import javax.swing.*;
 
 import controllers.EcouteurSouris;
-import main.Aide;
 import metier.DCase;
-import metier.DChronoLabel;
-import metier.DImageChooser;
-import metier.DImageur;
-import metier.DPanneau;
+import ihm.DImageChooser;
 import metier.DPartie;
-
+import ihm.Pref;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 
 public class DFenetre extends JFrame implements WindowListener {
-
+	private static final long serialVersionUID = 1L;
 	final static int DEBUTANT = 1;
 	final static int INTER = 2;
 	final static int EXPERT = 3;
@@ -85,7 +83,7 @@ public class DFenetre extends JFrame implements WindowListener {
 		/* creation du menu de jeu */
 		jeu = new JMenu("Jeu");
 		nouvelle = new JMenuItem("Nouvelle partie");
-		nouvelle.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_MASK));
+		nouvelle.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_DOWN_MASK));
 		nouvelle.setToolTipText("Partie avec les m�mes param�tres");
 		jeu.add(nouvelle);
 		jeu.addSeparator();
@@ -93,19 +91,19 @@ public class DFenetre extends JFrame implements WindowListener {
 		ButtonGroup groupRadio = new ButtonGroup();
 
 		debutant = new JRadioButtonMenuItem("D�butant");
-		debutant.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D, InputEvent.CTRL_MASK));
+		debutant.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D, InputEvent.CTRL_DOWN_MASK));
 		debutant.setToolTipText("81 cases 10 mines");
 
 		intermediaire = new JRadioButtonMenuItem("Interm�diaire");
-		intermediaire.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.CTRL_MASK));
+		intermediaire.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.CTRL_DOWN_MASK));
 		intermediaire.setToolTipText("256 cases 40 mines");
 
 		expert = new JRadioButtonMenuItem("Expert");
-		expert.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.CTRL_MASK));
+		expert.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.CTRL_DOWN_MASK));
 		expert.setToolTipText("480 cases 99 mines");
 
 		perso = new JRadioButtonMenuItem("Personnalis�...");
-		perso.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, InputEvent.CTRL_MASK));
+		perso.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, InputEvent.CTRL_DOWN_MASK));
 		perso.setToolTipText("Partie avec vos votres param�tres");
 
 		jeu.add(debutant);
@@ -120,7 +118,7 @@ public class DFenetre extends JFrame implements WindowListener {
 
 		jeu.addSeparator();
 		quitter = new JMenuItem("Quitter");
-		quitter.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, InputEvent.CTRL_MASK));
+		quitter.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, InputEvent.CTRL_DOWN_MASK));
 
 		jeu.add(quitter);
 
@@ -128,13 +126,13 @@ public class DFenetre extends JFrame implements WindowListener {
 		options = new JMenu("\n" + "import (default package);Options");
 
 		design = new JMenuItem("Graphisme");
-		design.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G, InputEvent.CTRL_MASK));
+		design.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G, InputEvent.CTRL_DOWN_MASK));
 		design.setToolTipText("Pour choisir le style d'image");
 		options.add(design);
 		options.addSeparator();
 
 		stat = new JMenuItem("Statistiques");
-		stat.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_MASK));
+		stat.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK));
 		stat.setToolTipText("Pour connaitre les scores");
 		options.add(stat);
 
@@ -142,14 +140,14 @@ public class DFenetre extends JFrame implements WindowListener {
 		aPropos = new JMenu("?");
 
 		aide = new JMenuItem("Aide");
-		aide.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_MASK));
+		aide.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_DOWN_MASK));
 		aide.setToolTipText("Pour obtenir de l'aide");
 		aPropos.add(aide);
 
 		aPropos.addSeparator();
 
 		createur = new JMenuItem("Cr�ateurs");
-		createur.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_MASK));
+		createur.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_DOWN_MASK));
 		createur.setToolTipText("Par qui ?");
 		aPropos.add(createur);
 
@@ -186,21 +184,20 @@ public class DFenetre extends JFrame implements WindowListener {
 			}
 
 			if (e.getSource() == this.getPerso()) {
-				Pref pref = new Pref(this);
+				new Pref(this);
 
 			}
 
 			if (e.getSource() == this.getDesign()) {
-				DImageChooser choix = new DImageChooser(this.getImageur(), this.getPanneauCentral());
+				new DImageChooser(this.getImageur(), this.getPanneauCentral());
 			}
-
+			
 			if (e.getSource() == this.getQuitter())
 				System.exit(0);
 
 			if (e.getSource() == this.getAide()) {
 				File f = new File("resources/Aide");
-				Aide a = new Aide(f);
-				;
+				new Aide(f);
 			}
 			if (e.getSource() == this.getCreateur())
 				JOptionPane.showMessageDialog(this, " R�alis� par Igor DAURIAC et Nicolas FRANCOIS, Projet IHM",
@@ -333,7 +330,7 @@ public class DFenetre extends JFrame implements WindowListener {
 
 	public void miseAJourCompteur() {
 		int nb = partie.getMines() - partie.nbrDrapeau();
-		Integer integer = new Integer(nb);
+		Integer integer = nb;
 
 		if ((nb > 9) || (nb < 0))
 			minesRestantes.setText(integer.toString());
