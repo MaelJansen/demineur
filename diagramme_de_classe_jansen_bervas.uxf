@@ -1,0 +1,76 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>160</x><y>60</y><w>230</w><h>310</h></coordinates><panel_attributes>Dcase
+--
+- mine : boolean
+- minesAlentour : int
+- drapeau : boolean
+- decouverte : boolean
+- selection : boolean
+--
++ DCase()
++ estMine() : boolean
++ getMinesAlentour() : int
++ yadrapeau() : boolean
++ estDecouverte() : boolean
++ setDecouverte() : void
++ selectionner() : void
++ deselectionner()  : void
++ select() : boolean
++ drapeauAction() : void
++ poserBombe() : void
++ setMinesAlentour(int) : void
++ getEtatCase(EtatPartie) : EtatCase</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>560</x><y>60</y><w>230</w><h>390</h></coordinates><panel_attributes>DPartie
+--
+- hauteur : int
+- largeur : int
+- nbMines : int
+- caseNonMineeRestante
+- explosion : boolean
+--
++ DPartie()
++ nouvellePartie() : void
++ gagne() : boolean
++ perdu() : boolean
++ getHauteur() : int
++ getLargeur() : int
++ getMines() : int
++ devoilerCase(int ,int) : void
++ drapeauAction(int, int) : void
++ preparerAlentour() : void
+- miner() : void
++ aExploser() : boolean
++ getCaseNonmineeRestante() : int
++ afficher() : void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>230</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n matrice</panel_attributes><additional_attributes>10;10;180;10</additional_attributes></element><element><id>Relation</id><coordinates><x>780</x><y>230</y><w>170</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>150;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>930</x><y>160</y><w>180</w><h>140</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
+IDPartie
+--
+--
++ getHauteur() : int
++ getLargeur() : int
++ getMines() : int
++ getEtatCase(int, int) : EtatCase
++ nbrDrapeau() : int
++ getMatrice() : DCase[][]</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>170</x><y>550</y><w>100</w><h>260</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+EtatCase
+--
+DRAPEAU
+SELECT
+INCONNUE
+VIDE
+UN
+DEUX
+TROIS
+QUATRE
+CINQ
+SIX
+SEPT
+HUIT
+MINE
+CROIX</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>350</x><y>550</y><w>100</w><h>100</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+EtatPartie
+--
+GAGNEE
+PERDUE
+ENCOURS</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>170</x><y>360</y><w>40</w><h>210</h></coordinates><panel_attributes>lt=&lt;-
+m1=1</panel_attributes><additional_attributes>10;190;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>360</y><w>40</w><h>210</h></coordinates><panel_attributes>lt=&lt;-
+m1=1</panel_attributes><additional_attributes>10;190;10;10</additional_attributes></element></diagram>
