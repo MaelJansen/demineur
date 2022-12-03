@@ -72,7 +72,7 @@ public class EcouteurSouris  implements MouseListener, MouseMotionListener{
 				fenetre.goOups();
 			}	
 			if(me.getButton()==me.BUTTON3){
-				fenetre.drapeauAction(sourisY,sourisX);					
+				fenetre.getCase(sourisY,sourisX).drapeauAction();;					
 				fenetre.miseAJourCompteur();
 				
 			}

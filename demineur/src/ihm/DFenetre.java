@@ -210,6 +210,18 @@ public class DFenetre extends JFrame {
 		return createur;
 	}
 
+	public int getHauteur() {
+		return partie.getHauteur();
+	}
+
+	public int getLargeur() {
+		return partie.getLargeur();
+	}
+
+	public int getMines() {
+		return partie.getMines();
+	}
+
 	private void miseEnPage() {
 		Container c = this.getContentPane();
 		c.setLayout(new BorderLayout(5, 5));
