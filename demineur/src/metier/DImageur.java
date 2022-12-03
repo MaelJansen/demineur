@@ -6,11 +6,9 @@ import java.awt.*;
 
 public class DImageur {
 
-	private DPartie partie;
 	public String repertoire = "resources/Images/Classic";
 
-	public DImageur(DPartie p) {
-		partie = p;
+	public DImageur() {
 	}
 
 	public String getRepertoire() {

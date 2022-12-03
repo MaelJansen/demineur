@@ -24,7 +24,7 @@ public class EcouteurSouris  implements MouseListener, MouseMotionListener{
 		sourisY = me.getY()/20;
 		try{
 		  if(!partie.perdu() && !partie.gagne() 
-		       && !(partie.getCase(sourisY,sourisX).yaDrapreau())){
+		       && !(partie.getCase(sourisY,sourisX).yaDrapeau())){
 			
 			if(me.getButton()==me.BUTTON1){
 				gauchePresse = false;

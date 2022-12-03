@@ -40,7 +40,7 @@ public class DFenetre extends JFrame {
 	public DFenetre(DPartie p) {
 		super("Demineur");
 		menu();
-		imageur = new DImageur(p);
+		imageur = new DImageur();
 		miseEnPage();
 
 		connecterPartie(p);
@@ -59,7 +59,7 @@ public class DFenetre extends JFrame {
 		/* partie centrale : damier */
 		if (centre != null)
 			getContentPane().remove(centre);
-		centre = new DPanneau(imageur, nb_lgn, nb_col);
+		centre = new DPanneau(this, nb_lgn, nb_col);
 
 		EcouteurSouris ecouteurSouris = new EcouteurSouris(this, partie);
 		centre.addMouseListener(ecouteurSouris);
@@ -316,5 +316,9 @@ public class DFenetre extends JFrame {
 
 	public int getChrono() {
 		return temps.getTime();
+	}
+	
+	public ImageIcon getIcon(int i, int j) {
+		return imageur.getIcon(partie.getEtatCase(i, j));
 	}
 }
