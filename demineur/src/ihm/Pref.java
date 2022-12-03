@@ -47,9 +47,9 @@ public class Pref implements ActionListener, FocusListener{
 		fenetre = fen;
 		System.out.println("Choix");
 		
-		hauteur = partie.getHauteur();
-		largeur = partie.getLargeur();
-		mines = partie.getMines();
+		hauteur = fenetre.getHauteur();
+		largeur = fenetre.getLargeur();
+		mines = fenetre.getMines();
 		
 		miseEnPage();
 		ajoutEcouteurs();

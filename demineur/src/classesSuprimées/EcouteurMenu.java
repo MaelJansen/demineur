@@ -1,4 +1,4 @@
-package controllers;
+package classesSuprimées;
 import java.awt.event.*;
 import main.Aide;
 import javax.swing.*;
